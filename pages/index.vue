@@ -1,9 +1,9 @@
 <script setup></script>
 
 <template>
-  <div>
+  <main class="mx-width">
     <h1>Accueil</h1>
-  </div>
+  </main>
 </template>
 
 <style scoped></style>

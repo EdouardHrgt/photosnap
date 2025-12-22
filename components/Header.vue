@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup>
+const menu = ref(false)
+</script>
 
 <template>
   <header>
@@ -20,22 +22,46 @@
             <path fill="url(#a)" d="M0 16L9.5 0 19 16z" />
           </g></svg
       ></nuxt-link>
-      <ul>
+      <ul :class="{ 'ul-active': menu }">
         <li><nuxt-link to="/stories" class="tp-4">Stories</nuxt-link></li>
         <li><nuxt-link to="/features" class="tp-4">Features</nuxt-link></li>
-        <li><nuxt-link to="/pricing" class="tp-4">Pricing</nuxt-link></li>
+        <li class="last-li"><nuxt-link to="/pricing" class="tp-4">Pricing</nuxt-link></li>
+        <Button type="primary" label="Get an invite" />
       </ul>
     </nav>
-    <Button type="primary" label="Get an invite" />
+    <div class="menu">
+      <img
+        src="../public/images/shared/mobile/menu.svg"
+        alt="open the menu"
+        v-if="!menu"
+        @click="menu = !menu" />
+      <img
+        src="../public/images/shared/mobile/close.svg"
+        alt="close the menu"
+        v-if="menu"
+        @click="menu = !menu" />
+    </div>
   </header>
+  <Transition name="fade">
+    <div class="filter" v-if="menu"></div>
+  </Transition>
 </template>
 
 <style scoped>
+.filter {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  background-color: rgb(0 0 0 / 0.5);
+  display: none;
+}
+
 header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  position: relative;
   padding-inline: var(--global-inline-padding);
   padding-block: var(--box-block-padding);
 }
@@ -53,11 +79,15 @@ ul {
   display: flex;
   align-items: center;
   gap: 2rem;
-  margin-inline: auto;
+  margin-left: auto;
 }
 
 li {
   list-style: none;
+}
+
+.last-li {
+  margin-right: 3rem;
 }
 
 a {
@@ -67,9 +97,65 @@ a {
   transition: color var(--time) ease-out;
 }
 
+.menu {
+  cursor: pointer;
+  z-index: 55;
+  display: none;
+}
+
 @media (hover: hover) {
   a:hover {
     color: var(--grey-400);
   }
+}
+
+@media (max-width: 800px) {
+  .menu {
+    display: block;
+  }
+
+  ul {
+    position: absolute;
+    background-color: white;
+    left: -101%;
+    top: 3rem;
+    flex-direction: column;
+    justify-content: center;
+    padding-block: 3rem;
+    z-index: 55;
+    transition: left 0.4s ease;
+  }
+
+  .ul-active {
+    left: 1rem;
+    right: 1rem;
+  }
+
+  .last-li {
+    margin-right: 0;
+  }
+
+  li a {
+    font-size: 15px;
+  }
+
+  .filter {
+    display: block;
+  }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.4s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.fade-enter-to,
+.fade-leave-from {
+  opacity: 1;
 }
 </style>
