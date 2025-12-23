@@ -68,7 +68,7 @@ h6 {
 
 :root {
   /* COLORS */
-
+  --grey-dark: rgb(134, 134, 134);
   --black-900: #000000;
   --white-900: #ffffff;
   --grey-400: #dfdfdf;

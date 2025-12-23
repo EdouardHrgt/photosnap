@@ -26,7 +26,8 @@ const menu = ref(false)
         <li><nuxt-link to="/stories" class="tp-4">Stories</nuxt-link></li>
         <li><nuxt-link to="/features" class="tp-4">Features</nuxt-link></li>
         <li class="last-li"><nuxt-link to="/pricing" class="tp-4">Pricing</nuxt-link></li>
-        <Button type="primary" label="Get an invite" />
+        <span class="line"></span>
+        <Button type="primary" label="Get an invite" large="true" />
       </ul>
     </nav>
     <div class="menu">
@@ -50,7 +51,7 @@ const menu = ref(false)
 <style scoped>
 .filter {
   position: absolute;
-  inset: 0;
+  inset: 3rem 0 0 0;
   z-index: 50;
   background-color: rgb(0 0 0 / 0.5);
   display: none;
@@ -103,6 +104,13 @@ a {
   display: none;
 }
 
+.line {
+  height: 3px;
+  width: calc(100% - 2rem);
+  background-color: var(--grey-400);
+  display: none;
+}
+
 @media (hover: hover) {
   a:hover {
     color: var(--grey-400);
@@ -127,12 +135,16 @@ a {
   }
 
   .ul-active {
-    left: 1rem;
-    right: 1rem;
+    left: 0rem;
+    right: 0rem;
   }
 
   .last-li {
     margin-right: 0;
+  }
+
+  .line {
+    display: inline-block;
   }
 
   li a {
