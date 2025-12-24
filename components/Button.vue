@@ -2,12 +2,12 @@
 defineProps({
   label: String,
   type: String,
-  large: Boolean,
+  large: String,
 })
 </script>
 
 <template>
-  <button v-if="type == 'primary'" class="primary-btn" :class="{ 'xl-btn': large }">
+  <button v-if="type == 'primary'" class="primary-btn" :class="{ 'xl-btn': large == 'true' }">
     {{ label }}
   </button>
   <button v-if="type == 'secondary'" class="secondary-btn">{{ label }}</button>
@@ -53,7 +53,6 @@ button {
   align-items: center;
   gap: 1rem;
   width: fit-content;
-  margin-left: auto;
 }
 
 @media (hover: hover) {
@@ -64,6 +63,9 @@ button {
   .secondary-btn:hover {
     text-decoration: underline;
     text-decoration-color: var(--black-900);
+  }
+  .ternary-btn:hover {
+    color: var(--grey-400);
   }
 }
 

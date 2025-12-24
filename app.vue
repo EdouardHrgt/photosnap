@@ -3,11 +3,12 @@
     <NuxtRouteAnnouncer />
     <Header />
     <Transition name="page" mode="out-in">
-      <NuxtPage />
+      <div>
+        <NuxtPage />
+      </div>
     </Transition>
   </div>
 </template>
-
 
 <style scoped>
 .page-enter-active,

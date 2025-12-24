@@ -20,25 +20,15 @@
         </g>
       </svg>
       <ul>
-        <li>
-          <a href="#" target="_blank" rel="noopener noreferrer"></a>
-        </li>
-        <li>
-          <a href="#" target="_blank" rel="noopener noreferrer"></a>
-        </li>
-        <li>
-          <a href="#" target="_blank" rel="noopener noreferrer"></a>
-        </li>
-        <li>
-          <a href="#" target="_blank" rel="noopener noreferrer"></a>
-        </li>
-        <li>
-          <a href="#" target="_blank" rel="noopener noreferrer"></a>
-        </li>
+        <li><img src="../public/images/shared/desktop/facebook.svg" alt="facebook" /></li>
+        <li><img src="../public/images/shared/desktop/youtube.svg" alt="youtube" /></li>
+        <li><img src="../public/images/shared/desktop/twitter.svg" alt="twitter" /></li>
+        <li><img src="../public/images/shared/desktop/pinterest.svg" alt="pinterest" /></li>
+        <li><img src="../public/images/shared/desktop/instagram.svg" alt="instagram" /></li>
       </ul>
     </section>
     <section class="links">
-      <ul class="">
+      <ul>
         <li><nuxt-link to="/" class="tp-4">Home</nuxt-link></li>
         <li><nuxt-link to="/stories" class="tp-4">Stories</nuxt-link></li>
         <li><nuxt-link to="/features" class="tp-4">Features</nuxt-link></li>
@@ -47,7 +37,7 @@
     </section>
 
     <section class="extra">
-      <Button type="ternary" label="Get an invite" large="true"/>
+      <div class="extra__btn"><Button type="ternary" label="Get an invite" large="false" /></div>
       <p class="tp-body">Copyright 2019. All Rights Reserved</p>
     </section>
   </footer>
@@ -57,14 +47,29 @@
 footer {
   background-color: var(--black-900);
   width: 100%;
-  padding: 3rem 4rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  padding-block: 4rem;
+  padding-inline: var(--global-inline-padding);
 }
 
-.socials {
-  border: 2px solid red;
+.socials svg,
+.socials ul {
+  margin: auto;
+}
+
+.socials ul {
+  display: flex;
+  align-items: center;
+  gap: 1.05rem;
+  margin-top: 1rem;
+  width: fit-content;
+}
+
+.socials ul img {
+  cursor: pointer;
+}
+
+.links ul {
+  text-align: center;
 }
 
 .links a {
@@ -77,22 +82,41 @@ footer {
 }
 
 .links {
-  border: 1px solid rgb(0, 132, 255);
 }
 
 .extra {
-  border: 2px solid yellow;
-  text-align: end;
+  text-align: center;
+}
+
+.extra__btn {
+  display: flex;
+  justify-content: center;
 }
 
 .extra p {
-    color: var(--grey-dark);
-    display: block;
+  color: var(--grey-dark);
+  display: block;
 }
 
 @media (hover: hover) {
   a:hover {
     color: var(--grey-400);
+  }
+}
+
+@media (min-width: 1025px) {
+  footer {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+  }
+  .links ul {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .socials ul {
+    margin-top: 2rem;
   }
 }
 </style>
