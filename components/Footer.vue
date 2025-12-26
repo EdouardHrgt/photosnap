@@ -70,6 +70,7 @@ footer {
 
 .links ul {
   text-align: center;
+  list-style: none;
 }
 
 .links a {

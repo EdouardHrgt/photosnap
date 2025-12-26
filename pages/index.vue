@@ -1,9 +1,43 @@
-<script setup></script>
+<script setup>
+const datas = ref({
+  1: {
+    title: 'Create and share your photo stories.',
+    body: 'Photosnap is a platform for photographers and visual storytellers. We make it easy to share photos, tell stories and connect with others.',
+    btnLabel: 'get an invite',
+    images: {
+      large: '/images/home/desktop/create-and-share.jpg',
+      small: '/images/home/mobile/create-and-share.jpg',
+    },
+    main: true,
+  },
+  2: {
+    title: 'beautiful stories every time',
+    body: 'We provide design templates to ensure your stories look terrific. Easily add photos, text, embed maps and media from other networks. Then share your story with everyone.',
+    btnLabel: 'view the stories',
+    order: '',
+    images: {
+      large: '/images/home/desktop/beautiful-stories.jpg',
+      small: '/images/home/mobile/beautiful-stories.jpg',
+    },
+  },
+  3: {
+    title: 'designed for everyone',
+    body: 'Photosnap can help you create stories that resonate with your audience.  Our tool is designed for photographers of all levels, brands, businesses you name it.',
+    btnLabel: 'view the stories',
+    order: 'invert',
+    images: {
+      large: '/images/home/desktop/designed-for-everyone.jpg',
+      small: '/images/home/mobile/designed-for-everyone.jpg',
+    },
+  },
+})
+</script>
+v
 
 <template>
   <div>
     <main class="mx-width">
-      <h1>Accueil</h1>
+      <HomeBox v-for="box in datas" :key="box.title" :infos="box" v-if="datas" />
     </main>
     <Carousel />
     <HomeBanner />

@@ -19,6 +19,14 @@ defineProps({
       </g>
     </svg>
   </button>
+  <button v-if="type == 'ternary-dark'" class="ternary-btn-dark">
+    {{ label }}
+    <svg xmlns="http://www.w3.org/2000/svg" width="43" height="14">
+      <g fill="none" fill-rule="evenodd" stroke="black">
+        <path d="M0 7h41.864M35.428 1l6 6-6 6" />
+      </g>
+    </svg>
+  </button>
 </template>
 
 <style scoped>
@@ -47,6 +55,16 @@ button {
 
 .ternary-btn {
   color: var(--white-900);
+  text-decoration-color: transparent;
+  background: none;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: fit-content;
+}
+
+.ternary-btn-dark {
+  color: var(--black-900);
   text-decoration-color: transparent;
   background: none;
   display: flex;
