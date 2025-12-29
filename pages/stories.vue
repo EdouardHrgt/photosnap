@@ -2,9 +2,10 @@
 
 <template>
   <div>
-    <main class="mx-width">
-      <h1>Stories</h1>
+    <main class="">
+      <StoriesHero />
     </main>
+    <Footer />
   </div>
 </template>
 

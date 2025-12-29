@@ -41,7 +41,7 @@ const carousel = ref({
           <h3 class="tp-3">{{ card.label }}</h3>
           <p class="tp-4">{{ card.author }}</p>
         </div>
-        <div class="wrap__btn"><Button type="ternary" label="read story" large="true" /></div>
+        <div class="wrap__btn"><Button type="ternary" label="read the story" large="true" /></div>
       </div>
     </div>
   </section>

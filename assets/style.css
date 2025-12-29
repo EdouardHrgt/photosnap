@@ -12,6 +12,11 @@
   font-family: 'DM Sans', sans-serif;
 }
 
+cite,
+time {
+  all: unset;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   html {
     interpolate-size: allow-keywords;
