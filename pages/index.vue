@@ -31,6 +31,35 @@ const datas = ref({
     },
   },
 })
+
+const carouselData = ref({
+  1: {
+    imgs: ['/images/stories/desktop/mountains.jpg', '/images/stories/mobile/mountains.jpg'],
+    label: 'The Mountains',
+    author: 'John Appleseed',
+  },
+  2: {
+    imgs: ['/images/stories/desktop/cityscapes.jpg', '/images/stories/mobile/cityscapes.jpg'],
+    label: 'Sunset Cityscapes',
+    author: 'Benjamin Cruz',
+  },
+  3: {
+    imgs: [
+      '/images/stories/desktop/18-days-voyage.jpg',
+      '/images/stories/mobile/18-days-voyage.jpg',
+    ],
+    label: '18 Days Voyage',
+    author: 'Alexei Borodin',
+  },
+  4: {
+    imgs: [
+      '/images/stories/desktop/architecturals.jpg',
+      '/images/stories/mobile/architecturals.jpg',
+    ],
+    label: 'Architecturals',
+    author: 'Samantha Brooke',
+  },
+})
 </script>
 v
 
@@ -39,7 +68,7 @@ v
     <main class="mx-width">
       <HomeBox v-for="box in datas" :key="box.title" :infos="box" v-if="datas" />
     </main>
-    <Carousel />
+    <Carousel :carousel="carouselData" />
     <HomeBanner />
     <Footer />
   </div>

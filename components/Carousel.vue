@@ -1,30 +1,9 @@
 <script setup>
-const carousel = ref({
-  1: {
-    imgs: ['/images/stories/desktop/mountains.jpg', '/images/stories/mobile/mountains.jpg'],
-    label: 'The Mountains',
-    author: 'John Appleseed',
-  },
-  2: {
-    imgs: ['/images/stories/desktop/cityscapes.jpg', '/images/stories/mobile/cityscapes.jpg'],
-    label: 'Sunset Cityscapes',
-    author: 'Benjamin Cruz',
-  },
-  3: {
-    imgs: [
-      '/images/stories/desktop/18-days-voyage.jpg',
-      '/images/stories/mobile/18-days-voyage.jpg',
-    ],
-    label: '18 Days Voyage',
-    author: 'Alexei Borodin',
-  },
-  4: {
-    imgs: [
-      '/images/stories/desktop/architecturals.jpg',
-      '/images/stories/mobile/architecturals.jpg',
-    ],
-    label: 'Architecturals',
-    author: 'Samantha Brooke',
+const props = defineProps({
+  carousel: {
+    type: Object,
+    required: true,
+    default: () => ({}),
   },
 })
 </script>
@@ -38,6 +17,7 @@ const carousel = ref({
       </picture>
       <div class="content">
         <div class="content__text">
+          <time :datetime="card.dateTime" class="tp-4" v-if="card.date">{{ card.date }}</time>
           <h3 class="tp-3">{{ card.label }}</h3>
           <p class="tp-4">{{ card.author }}</p>
         </div>
@@ -48,10 +28,6 @@ const carousel = ref({
 </template>
 
 <style scoped>
-section {
-
-}
-
 .card {
   position: relative;
   isolation: isolate;
@@ -77,6 +53,13 @@ picture img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
+}
+
+time {
+  color: var(--grey-400);
+  font-weight: 400;
+  margin-bottom: 0.75rem;
   display: block;
 }
 

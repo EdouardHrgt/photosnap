@@ -75,6 +75,27 @@ cite {
   margin-top: 1rem;
 }
 
-@media (min-width: 1025px) {
+@media (min-width: 850px) {
+  section {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .content {
+    background-color: transparent;
+    padding-inline: 0;
+    padding-block: 0;
+    padding-left: var(--global-inline-padding);
+    width: 50%;
+    position: absolute;
+    top: 50%;
+
+    transform: translateY(-50%);
+  }
+
+  p,
+  time {
+    color: var(--grey-400);
+  }
 }
 </style>
