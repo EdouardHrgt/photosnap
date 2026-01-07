@@ -7,18 +7,18 @@ defineProps({
 <template>
   <section
     :class="[
-      infos.main ? 'main-section' : 'secondary-section',
+      infos.main || infos.other ? 'main-section' : 'secondary-section',
       infos.order === 'invert' ? 'inverted' : '',
     ]">
-    <div class="image" :class="infos.main ? 'main-image' : ''">
+    <div class="image" :class="infos.main || infos.other ? 'main-image' : ''">
       <picture>
         <source media="(min-width: 1025px)" :srcset="infos.images.large" />
         <img :src="infos.images.small" :alt="infos.title" />
       </picture>
     </div>
-    <div class="content" :class="infos.main ? 'main-content' : ''">
+    <div class="content" :class="infos.main || infos.other ? 'main-content' : ''">
       <h2 class="tp-1" v-if="!infos.main">{{ infos.title }}</h2>
-      <h1 class="tp-1" v-if="infos.main">{{ infos.title }}</h1>
+      <h1 class="tp-1" v-if="infos.main || infos.other">{{ infos.title }}</h1>
       <p class="tp-body">
         {{ infos.body }}
       </p>

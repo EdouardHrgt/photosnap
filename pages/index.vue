@@ -69,7 +69,7 @@ v
       <HomeBox v-for="box in datas" :key="box.title" :infos="box" v-if="datas" />
     </main>
     <Carousel :carousel="carouselData" />
-    <HomeBanner />
+    <HomeBanner :main="true" />
     <Footer />
   </div>
 </template>
