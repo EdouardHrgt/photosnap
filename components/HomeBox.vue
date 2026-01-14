@@ -66,6 +66,12 @@ p {
   object-fit: cover;
 }
 
+@media (max-width: 1024px) {
+.content {
+  padding-left: 1.5rem;
+}
+}
+
 @media (min-width: 1025px) {
   section {
     align-items: center;
@@ -80,7 +86,6 @@ p {
     grid-template-columns: 40% 60%;
     gap: var(--left-padding);
   }
-
   .secondary-section.inverted {
     grid-template-columns: 40% 60%;
   }

@@ -8,12 +8,20 @@ const datas = ref({
   },
   other: true,
 })
+
+const values = ref({
+  
+})
 </script>
 
 <template>
   <div>
     <main class="mx-width">
       <HomeBox :infos="datas" v-if="datas" />
+      <section class="offers">
+        <OfferBtn />
+        <OfferCard />
+      </section>
     </main>
   </div>
 </template>
