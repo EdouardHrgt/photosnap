@@ -17,6 +17,8 @@ const datas = ref({
     </main>
     <HomeBanner :main="true" />
     <HomeBanner :secondary="true" />
+    <PricingHero />
+    <Footer />
   </div>
 </template>
 

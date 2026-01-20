@@ -13,22 +13,22 @@ const cards = ref({
   1: {
     label: 'Basic',
     text: 'Includes basic usage of our platform. Recommended for new and aspiring photographers.',
-    prices: [19.00, 190.00],
-    durations: ['month', 'year']
+    prices: [19.0, 190.0],
+    durations: ['month', 'year'],
   },
   2: {
     label: 'Pro',
     text: 'More advanced features available. Recommended for photography veterans and professionals.',
-    prices: [39.00, 390.00],
+    prices: [39.0, 390.0],
     durations: ['month', 'year'],
     main: true,
   },
   3: {
     label: 'Business',
     text: 'Additional features available such as more detailed metrics. Recommended for business owners.',
-    prices: [99.00, 999.00],
-    durations: ['month', 'year']
-  }
+    prices: [99.0, 999.0],
+    durations: ['month', 'year'],
+  },
 })
 
 const selectedPeriod = ref('month')
@@ -36,7 +36,6 @@ const selectedPeriod = ref('month')
 const handlePeriodChange = (period) => {
   selectedPeriod.value = period
 }
-
 </script>
 
 <template>
@@ -46,10 +45,17 @@ const handlePeriodChange = (period) => {
       <section class="offers">
         <OfferBtn @period-change="handlePeriodChange" />
         <div class="offers-container">
-          <OfferCard v-for="card in cards" :key="card.label" :card="card" :period="selectedPeriod" />
+          <OfferCard
+            v-for="card in cards"
+            :key="card.label"
+            :card="card"
+            :period="selectedPeriod" />
         </div>
       </section>
+      <TableFormula />
     </main>
+    <PricingHero />
+    <Footer />
   </div>
 </template>
 
@@ -58,7 +64,7 @@ const handlePeriodChange = (period) => {
   display: flex;
   gap: 2rem;
   margin-bottom: 3rem;
-  align-items: flex-start
+  align-items: flex-start;
 }
 
 @media (max-width: 1024px) {
