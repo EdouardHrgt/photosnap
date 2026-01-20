@@ -1,8 +1,10 @@
 <script setup>
-const yearly = ref(false)
+const emit = defineEmits(['period-change'])
+const selectedPeriod = ref('month')
 
-const togglePlan = () => {
-  yearly.value = !yearly.value
+const togglePeriod = () => {
+  selectedPeriod.value = selectedPeriod.value === 'month' ? 'year' : 'month'
+  emit('period-change', selectedPeriod.value)
 }
 </script>
 
@@ -11,8 +13,8 @@ const togglePlan = () => {
     <p>
       <strong class="tp-3">Monthly</strong>
     </p>
-    <span class="toggler" @click="togglePlan">
-      <span class="ball" :class="{ active: yearly }"></span>
+    <span class="toggler" @click="togglePeriod">
+      <span class="ball" :class="{ active: selectedPeriod === 'year' }"></span>
     </span>
     <p>
       <strong class="tp-3">Yearly</strong>
@@ -26,7 +28,7 @@ const togglePlan = () => {
   align-items: center;
   justify-content: center;
   gap: 2rem;
-  margin-block: 5rem;
+  margin-block: 6rem;
 }
 
 .toggler {
@@ -53,5 +55,11 @@ const togglePlan = () => {
 
 .ball.active {
   left: 35px;
+}
+
+@media (max-width: 1024px) {
+  .monthly-yearly {
+    margin-block: 4rem;
+  }
 }
 </style>

@@ -151,6 +151,17 @@ body {
   padding-inline: var(--global-inline-padding);
 }
 
+.radient {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 5px;
+  background: linear-gradient(to bottom, var(--blue-400), var(--purple-400), var(--yellow-400));
+  border-radius: 0;   
+}
+
 @media (max-width: 1024px) {
 }
 
